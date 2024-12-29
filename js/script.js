@@ -6,6 +6,7 @@ const boton = document.getElementById("boton");
 boton.addEventListener('click',() => {
     let ingreso = prompt('Ingrese un número');
     while (ingreso !== "salir") {
+        ingreso = parseFloat(ingreso)
         if (ingreso % 2 === 0) {
             pares++;
             console.log(ingreso);
