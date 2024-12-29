@@ -5,7 +5,7 @@ const boton = document.getElementById("boton");
 boton.addEventListener('click',() => {
     valor = prompt("Ingrese valor a sumar");
     while (valor != "ESC") {
-        cadena = cadena + valor;
+        cadena += valor;
         console.log(cadena);
         valor = prompt("Ingrese valor a sumar");
     } 
