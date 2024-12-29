@@ -1,11 +1,9 @@
 //Pedir número mediante prompt y sumarle otro número en cada repetición,realizando una salida por cada resultado
-
-let numeroInicial = prompt("Ingrese el primer valor");
-numeroInicial = Number(numeroInicial)
-for (let i = 0; i <10 ; i++) {
-    let numeroSuma = prompt("Ingrese valor a sumar");
-    numeroSuma = Number(numeroSuma)
-    suma = numeroInicial + numeroSuma;
-    console.log(suma);
-    numeroInicial = suma;
-}
+const boton = document.getElementById("boton");
+boton.addEventListener('click',() => {
+    let cantidad = prompt('Ingrese cantidad de saludos a mostrar');
+    cantidad = Number(cantidad);
+    for (let i = 0; i !== cantidad; i++) {
+        console.log("Hola");
+    }
+})
