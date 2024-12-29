@@ -1,4 +1,4 @@
-//Actividad 01:
+//Actividad 02:
 //Crea un algoritmo que le pida al usuario un número y luego utiliza while para evaluar cuántos números son pares y cuantos impares, hasta que el usuario ingrese "salir".  
 let pares = 0;
 let impares = 0;    
