@@ -1,11 +1,12 @@
-//Pedir número mediante prompt y sumarle otro número en cada repetición,realizando una salida por cada resultado
-
-let numeroInicial = prompt("Ingrese el primer valor");
-numeroInicial = Number(numeroInicial)
-for (let i = 0; i <10 ; i++) {
-    let numeroSuma = prompt("Ingrese valor a sumar");
-    numeroSuma = Number(numeroSuma)
-    suma = numeroInicial + numeroSuma;
-    console.log(suma);
-    numeroInicial = suma;
-}
+//Pedir un texto mediante prompt, concatenar un valor en cada repetición, realizando una salida por cada resultado, hasta que se ingresa “ESC”.
+let cadena ="";
+let valor;
+const boton = document.getElementById("boton");
+boton.addEventListener('click',() => {
+    valor = prompt("Ingrese valor a sumar");
+    while (valor != "ESC") {
+        cadena = cadena + valor;
+        console.log(cadena);
+        valor = prompt("Ingrese valor a sumar");
+    } 
+})
