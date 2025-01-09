@@ -8,7 +8,8 @@ function ingresarNumeros() {
 const sumarNumeros = (a, b) => a + b;
 
 function mostrarResultado () {
-    console.log(`El resultado de la suma es: ${sumarNumeros(ingresarNumeros(),ingresarNumeros())}`)
+    const resultado = sumarNumeros(ingresarNumeros(),ingresarNumeros());
+    console.log(`El resultado de la suma es: ${resultado}.`);
 }
 
 document.getElementById("boton").addEventListener('click', ()=> {
