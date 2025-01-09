@@ -1,11 +1,20 @@
-//Pedir número mediante prompt y sumarle otro número en cada repetición,realizando una salida por cada resultado
+/* Declarar arrays  */
 
-let numeroInicial = prompt("Ingrese el primer valor");
-numeroInicial = Number(numeroInicial)
-for (let i = 0; i <10 ; i++) {
-    let numeroSuma = prompt("Ingrese valor a sumar");
-    numeroSuma = Number(numeroSuma)
-    suma = numeroInicial + numeroSuma;
-    console.log(suma);
-    numeroInicial = suma;
-}
+
+let numeros = [1,2,3,4,5]
+console.log(numeros)
+
+let palabras = ["manzana", "pera", "auto","progamacion"]
+console.log(palabras[3])
+
+let booleanos = [true, false,true,false]
+console.log(booleanos)
+
+let matriz = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+console.log(matriz)
+console.log(matriz[0][2])
