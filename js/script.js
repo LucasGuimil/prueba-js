@@ -1,48 +1,71 @@
-//Ordenar arrays
+//Objetos literales: son colecciones de pares clave-valor encerrados entre llaves {}. A diferencia de los arrays, los datos no están indexados. Para acceder a ellos se realiza a través de claves definidas.
 
-//Método sort(): sirve para ordenar un array desordenado de manera creciente o de manera decreciente. Cuando no se determina ninguna función dentro del paréntesis, toma el sistema Unicode que ordena en base al primer caractér.
+//Array 
+const colores = ["rojo","verde","amarillo"]
+console.log(colores[0])//Accede al primer elemento.
 
-let numeros = [40,5,200,30,9]
-numeros.sort((a,b)=> a - b) /*Esta función flecha compara el primer parámetro con el segundo, ordenandolo de manera creciente. Si se pone al revés, ordena de manera decreciente.*/
-console.log(numeros)
+//Objeto literal
+const semaforo = {
+    rojo: "Detenerse",
+    verde: "Avanzar",
+    amarillo: "Cuidado"
+}
+console.log(semaforo.rojo) //Accede al valor de la clave "rojo".
 
-let palabras = ["Auto","zorro","Pelota","casa"]
-/*Si no se define una función en el paréntesis, las palabras en mayúsculas siempre quedaran primeras.*/
-palabras.sort((a,b)=> a.localeCompare(b))//La función localeCompare realiza la comparación del orden alfábetico, ignorando las mayúsculas y minúsculas.
-console.log(palabras)
+//Arrays de objetos
+//Dentro de los arrays se pueden almacenar objetos, lo que permite almacenar datos de manera más compleja. Se pueden utilizar los métodos de modificación de arrays como push, sort.
 
+const usuarios =[] //se define un array vacío.
+//1. Agregar objetos con el metodo "push" permite generar una lista dinámica.
+usuarios.push({nombre: "Ana", edad: 45})
+usuarios.push({nombre: "Luis", edad: 30}) //Se puede agregar más de un elemento al array separando los objetos con coma (,).
+console.log(usuarios)
 
-//Método reverse(): invierte el orden del array.
-numeros.reverse()
-console.log(numeros)
+//2. Ordenar objetos con "sort"
+//Se pueden ordenar en base a alguna clave específica de los objetos.
+usuarios.sort((a,b)=> a.edad - b.edad)
+console.log(usuarios)
+//IMPORTANTE: tener cuidado con el método sort cuando es una base de datos grande.
 
+//3. Filtrar con "filter"
+//Se pueden filtrar elementos en base a una condición, y almacener subconjuntos de un array en base a las propiedades de los objetos. 
+const mayoresDe25 = usuarios.filter(usuario => usuario.edad >32)
+console.log(mayoresDe25)
 
+//4. Buscar objeto con "find"
+//Encuentra el primer objeto que cumple con una condición específica.
+const luis = usuarios.find(usuario => usuario.nombre ==="Luis")
+console.log(luis)
 
-//Concatenar arrays
-//Metodo join(): convierte un array en una cadena de texto, permitiendo definir el separador de los elementos dentro del paréntesis. Si no se proporciona un separador, se concatenan con una coma (,). Si el separador es una cadena vacía (""), se concatenan sin ningún espacio entre ellos.
+/* Mejores Prácticas
+Claridad en las Funciones de Comparación: Al usar sort, asegúrate de proporcionar una función clara que determine cómo se deben comparar los objetos.
 
-//1. Uso básico con coma (default)
-let colores = ["Rojo" , "Azul", "Negro"]
-let resultado = colores.join();
-console.log(resultado)
+Inmutabilidad: Al modificar arrays, considera usar métodos que no alteren el array original, como map y filter, para evitar efectos secundarios no deseados.
 
-//2. Uso con separador de espacio 
-let nombres = ["Ana" , "Juan" , "Carlos"]
-let listaNombres= nombres.join(" ")
-console.log(listaNombres)
+Eficiencia: Al trabajar con arrays grandes, ten en cuenta la eficiencia de los métodos utilizados, especialmente en operaciones como sort, que pueden ser costosas. */
 
-//3. Uso con separador de guión 
-let elementos = ["Hidrógeno", "Oxígeno", "Carbono"]
-let formula = elementos.join("-")
-console.log(formula)
+//Método "for...of"
+let arrayObjetos =[]
+arrayObjetos.push({id: 1, nombre: "Producto 1"})
+arrayObjetos.push({id: 2, nombre: "Producto 2"})
+arrayObjetos.push({id: 3, nombre: "Producto 3"})
+console.log(arrayObjetos)
+//Permite acceder al objeto dentro del array para mostrar algún valor dentro del objeto.
+for(let objeto of arrayObjetos) {
+    console.log(objeto.nombre)
+}
 
-//4. Uso con separador vacío
-let letras = ["J", "a","v","a"]
-let palabra = letras.join("")
-console.log(palabra)
+//Se pueden modificar y eliminar propiedades de los objetos:
+const persona = {
+    nombre: "Lucas",
+    edad: 28,
+    ciudad: "CABA" 
+}
+//Añadir o Modificar
+persona.profesion = "Empleado"//Se declara la propiedad a añadir o modificar y se define el valor.
+console.log(persona)
 
-/*Casos de uso: 
-- Formato de visualización: Transformar un array de datos en una forma legible para ser mostrada en interfaces de usuario o en documentos.
-- Preparación de datos para envío: Convertir arrays a strings para ser enviados a través de peticiones de red donde solo se pueden enviar strings. 
-- Logs y depuración: Facilitar la revisión de datos en desarrollo, permitiendo ver fácilmente el contenido de arrays complejos.*/
+//Eliminar clave o propiedad
+delete persona.edad
+console.log(persona)
 
